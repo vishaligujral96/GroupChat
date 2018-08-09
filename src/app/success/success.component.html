@@ -1,0 +1,22 @@
+<div id=main1>
+<div id="left">
+    <input id="search" type="text" placeholder="Search.." name="search">
+  <input type="text" [(ngModel)]="str" >
+  <button id="message" (click)="Message()" >SendMessages</button>
+  
+
+  <input type="text" [(ngModel)]="channel" >
+  <button  id="channel" (click)="add()" >AddChannel</button><br/><br/>
+  
+  
+
+
+</div>
+<div id="right">
+ <ul *ngFor="let msgdetail of messages">
+    <li>{{msgdetail}}</li>
+   </ul>  
+</div>
+
+
+</div>

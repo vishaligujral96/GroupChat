@@ -1,0 +1,34 @@
+#main1{
+    width:100%;
+height:800px;
+margin: 0%;
+}
+#left{
+    width:20%;
+    height:100%;
+    
+    position:absolute;
+    background-color: #4A394B;
+}
+#right{
+    width:80%;    
+    height:100%;
+    
+    position:absolute;
+    margin-left: 20%;
+
+}
+#message{
+ margin-top:20px;
+ 
+
+}
+#channel{
+    margin-top:40px;
+   
+}
+#search{
+    margin-top:10px;
+    border-radius: 8px;
+   
+}
