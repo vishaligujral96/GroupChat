@@ -21,11 +21,11 @@ export class SuccessComponent implements OnInit {
   ngOnInit()
    {
     
-    this.Show();
+   // this.Show();
     this.showChannelList()
 
    }
-  
+
    str:string;
    channel:string;
    Message() 
@@ -35,8 +35,10 @@ export class SuccessComponent implements OnInit {
     },
     err=>{
       console.log(err);
+    },() => {                                                         
+      this.Show();
     } )
-    //ShowMessages();
+    
   }
   add(){
     this.service.AddChannel(this.channel).subscribe(res1=>{
@@ -87,6 +89,22 @@ export class SuccessComponent implements OnInit {
       err => {
         console.log(err);
       })
+  } 
+  index:string;
+  joinchannel(index)
+  {
+    this.service.FindChannelId(index).subscribe(res=>
+      {
+      this.service.JoinChannel(res.sid).subscribe(res=>{
+        alert("You have successfully joined");   
+       },
+      err=>{
+        console.log(err);
+      } )  
+     },
+    err=>{
+      console.log(err);
+    } )
   }
 
 

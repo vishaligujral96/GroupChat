@@ -22,6 +22,7 @@ export class DataService {
     //this.User=JSON.parse(localStorage.getItem("key"));
 
    }
+    UserData ;
    canActivate()
    {
      if(localStorage.getItem('id')==='114670258576968862511' )
@@ -50,14 +51,23 @@ export class DataService {
     AddChannel(str):Observable<any>{
       return this.http.post('https://chat.twilio.com/v2/Services/IS0696741271414db0bb484cc53df791ae/Channels','UniqueName='+str,httpOptions)
     }
-   
-
+    FindChannelId(str):Observable<any>{
+      return this.http.get('https://chat.twilio.com/v2/Services/IS0696741271414db0bb484cc53df791ae/Channels/'+str, httpOptions)
+    }
+    JoinChannel(str):Observable<any>{
+      return this.http.post('https://chat.twilio.com/v2/Services/IS0696741271414db0bb484cc53df791ae/Channels/'+str+'/Members', 'ChannelSid='+str+'&Identity=vishaligujral96@gmail.com&ServiceSid=IS0696741271414db0bb484cc53df791ae', httpOptions)
+    }
     AddUser(str):Observable<any>{
       return this.http.get(''+str,httpOptions)  
     }
     SendMessage(str):Observable<any>{
       return this.http.post("https://chat.twilio.com/v2/Services/"+this.serviceId+"/Channels/"+this.channelId+"/Messages","ChannelSid="+this.channelId+"&ServicesSid="+this.serviceId+"&Body="+str+"&From="+this.user,httpOptions);
     } 
+     
+joinchannel_descript(channel_join) : Observable<any>{
+  const body =new HttpParams().set('ChannelSid', channel_join.ServiceId).set("ServiceSid", channel_join.Sid).set("Identity",this.UserData.id);
+  return this.http.post(channel_join.links.members,body.toString(), httpOptions)
+}
 
     Show():Observable<any>{
       return this.http.get("https://chat.twilio.com/v2/Services/"+this.serviceId+"/Channels/"+this.channelId+"/Messages",httpOptions).pipe(map(data=>data));

@@ -1,27 +1,43 @@
-<div id=main1>
-<div id="left">
-    <input id="search" type="text" placeholder="Search.." name="search">
-  <input type="text" [(ngModel)]="str" >
-  <button id="message" (click)="Message()" >SendMessages</button>
+
+
+  <div id="left">
+    <input id="search" type="text" placeholder="Search.." name="search" class="glyphicon glyphicon-search">
+    <input type="text" [(ngModel)]="str">
+    <button id="message" (click)="Message()">SendMessages</button>
+
+
+    <input type="text" [(ngModel)]="channel">
+    <button id="channel" (click)="add()">AddChannel</button>
+    <br/>
+    <br/>
+    <div id="content">
+      <h3> Channels</h3>
+      <ul *ngFor="let index of channelArray">
+        <li>{{index}}<button (click)="joinchannel( index)">Join</button></li>
+      </ul>
+    </div>
+
+
+
+  </div> 
+  <!--
+  <div id="right">
+    <ul *ngFor="let msgdetail of messages">
+      <li>{{msgdetail}}</li>
+    </ul>
+  </div> -->
+
   
-
-  <input type="text" [(ngModel)]="channel" >
-  <button  id="channel" (click)="add()" >AddChannel</button><br/><br/>
-  <div id="content"><h3> Channels</h3>
-    <ul *ngFor="let index of channelArray">
-       <li>{{index}}</li>
-      </ul>  
-   </div> 
-  
-
-
-</div>
 <div id="right">
- <ul *ngFor="let msgdetail of messages">
-    <li>{{msgdetail}}</li>
-   </ul>  
+  <div id="right1"><input type="text" placeholder="Search.." name="search">
+  
+  
+  </div>
+  <div id="right2">
+    <ul *ngFor="let msgdetail of messages">
+     <li>{{msgdetail}}</li>
+  </ul>
+</div> 
+ <div id="right3"></div> 
 </div>
 
-
-
-</div>

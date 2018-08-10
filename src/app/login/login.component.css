@@ -1,6 +1,7 @@
 #body{
 
     height: 800px;
+    
 }
 
 #head{
@@ -13,6 +14,7 @@
     width:15%;
     height: 150px;
     position: absolute;
+    border: 2px solid blue;
     
 }
 

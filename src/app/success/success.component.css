@@ -1,23 +1,44 @@
-#main1{
+/*#main1{
     width:100%;
-height:800px;
+ height:600px; 
 margin: 0%;
-}
+overflow:hidden;
+
+} */
+
 #left{
     width:20%;
     height:100%;
-    
     position:absolute;
     background-color: #4A394B;
+   /* border:2px solid yellow; */
 }
 #right{
     width:80%;    
-    height:100%;
-    
-    position:absolute;
+    height :790px;
+    border: 2px solid palevioletred;
     margin-left: 20%;
+}
+
+#right1{
+height: 10%;
+/*border: 2px solid green; */
 
 }
+
+#right2{
+    overflow: scroll;
+    height:70%;
+   border: 2px solid red;
+    margin-top: 0%;
+
+}
+#right3{
+    height: 19%;
+    border: 2px solid black;
+    margin-top:0%;
+  /*  position: absolute; */
+} 
 #message{
  margin-top:20px;
  
