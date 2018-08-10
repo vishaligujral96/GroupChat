@@ -22,6 +22,17 @@ export class DataService {
     //this.User=JSON.parse(localStorage.getItem("key"));
 
    }
+   canActivate()
+   {
+     if(localStorage.getItem('id')==='114670258576968862511' )
+     {
+       return true;
+     }
+     else
+     {
+       false;
+     }
+   }
    
   getData():Observable<any>{
     const body=new HttpParams().set('FriendlyName','Vishali');

@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
       var t= this.service.getData();
       t.subscribe(data=> console.log(data));
 
+
       
     }
     
@@ -30,6 +31,8 @@ export class LoginComponent implements OnInit {
         console.log(socialPlatform+" sign in data : " , userData);
        
         this.router.navigate(['/success']);
+        localStorage.setItem("id", userData.id);
+        localStorage.setItem("name", userData.name);
             
       }
     );

@@ -9,6 +9,8 @@ import { SuccessComponent } from './success/success.component';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
+import { DataService } from './data.service';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
   export function getAuthServiceConfigs() {
@@ -32,7 +34,17 @@ import { FormsModule} from '@angular/forms';
     component: SuccessComponent ,
     
   },
-
+  {
+    path:'success',
+    component: SuccessComponent ,
+    canActivate:[DataService]
+    
+  },
+  {
+    path:'**',
+    component: PagenotfoundComponent ,
+    
+  }
   
 ]
 
@@ -40,7 +52,8 @@ import { FormsModule} from '@angular/forms';
   declarations: [
     AppComponent,
     LoginComponent,
-    SuccessComponent
+    SuccessComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

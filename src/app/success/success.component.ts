@@ -13,14 +13,16 @@ import { NgModule } from '@angular/core';
 })
 export class SuccessComponent implements OnInit {
  
- //message:string="";
+ 
   constructor(private service:DataService)  { }
- // User=new UserDetails();
+ 
+ 
  messages=[];
   ngOnInit()
    {
-    setInterval
+    
     this.Show();
+    this.showChannelList()
 
    }
   
@@ -66,6 +68,27 @@ export class SuccessComponent implements OnInit {
     } 
 
   }
+
+
+  channelArray = [];
+
+  //this function displays the channels which have been made
+
+  showChannelList() {
+    this.service.Dispaly().subscribe(res => {
+
+      // console.log(res.channels[0].unique_name);
+      var len = res.channels.length;
+      for (let index = 0; index < len; index++) {
+        this.channelArray[index] = res.channels[index].unique_name;
+        // console.log( JSON.stringify(this.channelArray[index]));
+      }
+    },
+      err => {
+        console.log(err);
+      })
+  }
+
 
 
 
